@@ -11,10 +11,11 @@ y3 = 30
 x4 = 1100
 y4 = 30
 
+running = False  
+
 def setup(): #once
     size(1200, 600) #widht(x)/height(y)
     
-
 def draw(): #every time
     fill(255, 255, 255)
     background(224, 238, 224) #weil der alte Kreis immer gelöscht werden soll (wenn bei Setup, sieht man alle Kreise)
@@ -54,8 +55,14 @@ def draw(): #every time
     fill (0, 0, 0)
     text("Reset", x4 + 15, y4 + 30)
 
-#Bewegung keliner Kreis    
-    if (mouseButton == LEFT and 1020 <= mouseX <= 1150 and 30 <= mouseY <= 80 ):
+#Bewegung keliner Kreis
+    if 1020 <= mouseX <= 1150 and 30 <= mouseY <= 80:
+        running = True
+    else:
+        running = False
+        
+    if running == True:
+        #if (mouseButton == LEFT and 1020 <= mouseX <= 1150 and 30 <= mouseY <= 80 ):
         if 50 <= x1 <= 100: #Bewegung auf Podest
             x1 = x1 + 5
         if 101 <= x1 <= 250: #Bewegung auf Rampe
