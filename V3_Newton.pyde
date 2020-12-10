@@ -52,7 +52,7 @@ def draw(): #every time
     textSize(10)
     fill(0)
     textAlign(LEFT)
-    text("Diese Simulation stellt das erste Newtonsche Axiom dar.", 10, height - 10)
+    text("Diese Simulation stellt das erste Newtonsche Axiom dar. Es visualisiert die Trägheit der Körper, die durch die selbe Karft angetrieben werden, sich jedoch unterschiedlich schnell bewegen.", 10, height - 10)
 
 
 #Laufbahn kleiner Kreis
