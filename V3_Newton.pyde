@@ -28,10 +28,10 @@ konturfarbe_reset = 0 #R & G Wert des RGB-Wert Start Button
 v_kb = 5
 v_gb = 3
 
-def setup(): #once
+def setup(): #einmal
     size(1200, 600) #widht(x)/height(y)
     
-def draw(): #every time
+def draw(): #immer
 
 #Abrufen der globalen Variablen
     global running
