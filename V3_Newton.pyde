@@ -107,7 +107,7 @@ def draw(): #immer
     fill (0, 0, 0)
     text("Reset", x4 + 25, y4 + 30)
 
-#Bewegungen
+#Bewegungen / Quelle: Eugster Racipi
     if x3 <= mouseX <= x3 + 50 and y4 <= mouseY <= y4 + 50 and mouseButton == LEFT: #Bewegung Start
         running = 1
     
