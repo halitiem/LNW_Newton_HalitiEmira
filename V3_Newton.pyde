@@ -25,7 +25,7 @@ konturfarbe_start = 0 #R & G Wert des RGB-Wert Start Button
 konturfarbe_reset = 0 #R & G Wert des RGB-Wert Start Button
 
 #Geschwindigkeiten kb = kleiner Ball, gb = grosser Ball
-v_kb = 5
+v_kb = 4
 v_gb = 3
 
 def setup(): #einmal
@@ -34,26 +34,26 @@ def setup(): #einmal
 def draw(): #immer
 
 #Abrufen der globalen Variablen
+    global length_podest
+    global x1, y1, x2, y2, x3, y3, x4
     global running
     global konturfarbe_start, konturfarbe_reset
-    global length_podest
-    global v_kb, v_gb    
-
+    global v_kb, v_gb
+    
 #Hintergrundfarbe
     background(224, 238, 224) #weil der alte Kreis immer gelöscht werden soll (wenn bei Setup, sieht man alle vorherigen Kreise)
 
 #Titel
     textSize(30)
     fill(0)
-    textAlign(CENTER)
+    textAlign(CENTER) #Quelle Eugster Racipi
     text("Newton's first", width / 2, y3 + 40)
 
 #Bemerkung/Beschreibung
     textSize(10)
     fill(0)
-    textAlign(LEFT)
-    text("Diese Simulation stellt das erste Newtonsche Axiom dar. Es visualisiert die Trägheit der Körper, die durch die selbe Karft angetrieben werden, sich jedoch unterschiedlich schnell bewegen.", 10, height - 10)
-
+    textAlign(LEFT) #Quelle Eugster Racipi
+    text("Diese Simulation stellt das erste Newtonsche Axiom dar. Es visualisiert die Traegheit der Koerper, die durch die selbe Karft angetrieben werden, sich jedoch unterschiedlich schnell bewegen.", 10, height - 10)
 
 #Laufbahn kleiner Kreis
     noStroke() #keine Kontur Laufbahn
@@ -63,9 +63,6 @@ def draw(): #immer
     triangle(length_podest, 170, length_podest + 150, 230, length_podest, 230) #Rampe
     
 #kleiner Kreis
-    global x1 #Variable holen
-    global y1
-    
     strokeWeight(1) #Kontur Kreis, wie viele Pixel
     stroke(0) #Konturfarbe kleiner Kreis
     fill(131, 139, 131) #Füllfarbe kleiner Kreis
@@ -79,9 +76,6 @@ def draw(): #immer
     triangle(length_podest, 450, length_podest + 150, 510, length_podest, 510) #Rampe
     
 #grosser Kreis
-    global x2
-    global y2
-        
     strokeWeight(1) #Kontur Kreis, wie viele Pixel
     stroke(0) #Konturfarbe kleiner Kreis
     fill(131, 139, 131) #Füllfarbe kleiner Kreis
@@ -126,8 +120,8 @@ def draw(): #immer
             x1 = x1 + v_kb
         if length_podest < x1 < length_podest + 150: #Bewegung auf Rampe
             x1 = x1 + v_kb
-            #y1 = y1 + 60 / 150 * v_kb #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
-            y1 = y1 + 2 #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
+            y1 = y1 + 60.0 / 150.0 * v_kb #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
+            #y1 = y1 + 2 #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
         if length_podest + 150 <= x1 <= width - 100: #Bewegung auf dem Rest der Laufbahn
             x1 = x1 + v_kb
             
@@ -138,7 +132,8 @@ def draw(): #immer
             x2 = x2 + v_gb
             #dy = 60 / 150 * v_gb
             #y2 = y2 + dy #Berechnung delta y : delta y = 60 : 150 = ? : 2 -> ? = 0.8
-            y2 = y2 + 1.2 #Berechnung delta y : delta y = 60 : 150 = ? : 2 -> ? = 0.8
+            y2 = y2 + 60.0 / 150.0 * v_gb
+            #y2 = y2 + 1.2 #Berechnung delta y : delta y = 60 : 150 = ? : 2 -> ? = 0.8
         if length_podest + 150 <= x2 <= width - 100: #Bewegung auf dem Rest der Laufbahn
             x2 = x2 + v_gb
         
@@ -157,3 +152,4 @@ def draw(): #immer
         
         konturfarbe_start = 0 
         konturfarbe_reset = 255 #Reset button leuchtet (gelb)
+        
