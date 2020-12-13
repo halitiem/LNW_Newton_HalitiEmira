@@ -42,18 +42,22 @@ def draw(): #immer
     
 #Hintergrundfarbe
     background(224, 238, 224) #weil der alte Kreis immer gelöscht werden soll (wenn bei Setup, sieht man alle vorherigen Kreise)
-
+    
+    rect(1150, 120, 2, 110)
+    rect(1150, 350, 2, 160)
+    
 #Titel
     textSize(30)
     fill(0)
     textAlign(CENTER) #Quelle Eugster Racipi
-    text("Newton's first", width / 2, y3 + 40)
+    text("Newton's babies", width / 2, y3 + 40)
 
 #Bemerkung/Beschreibung
     textSize(10)
     fill(0)
     textAlign(LEFT) #Quelle Eugster Racipi
-    text("Diese Simulation stellt das erste Newtonsche Axiom dar. Es visualisiert die Traegheit der Koerper, die durch die selbe Karft angetrieben werden, sich jedoch unterschiedlich schnell bewegen.", 10, height - 10)
+    text("Diese Simulation stellt die Newtonsche Axiome dar.", 10, height - 25)
+    text("Sie visualisiert die Traegheit der Koerper, die durch die selbe Karft angetrieben werden, sich aber unterschiedlich schnell bewegen. Erst ein Hindernis stoppt die konstant bleibende Geschwindigkeit der Koerper.", 10, height - 10)
 
 #Laufbahn kleiner Kreis
     noStroke() #keine Kontur Laufbahn
@@ -64,8 +68,8 @@ def draw(): #immer
     
 #kleiner Kreis
     strokeWeight(1) #Kontur Kreis, wie viele Pixel
-    stroke(0) #Konturfarbe kleiner Kreis
-    fill(131, 139, 131) #Füllfarbe kleiner Kreis
+    stroke(0) #Konturfarbe
+    fill(131, 139, 131) #Füllfarbe Kreis
     ellipse(x1, y1, 80, 80)
     
 #Laufbahn grosser Kreis
@@ -77,8 +81,8 @@ def draw(): #immer
     
 #grosser Kreis
     strokeWeight(1) #Kontur Kreis, wie viele Pixel
-    stroke(0) #Konturfarbe kleiner Kreis
-    fill(131, 139, 131) #Füllfarbe kleiner Kreis
+    stroke(0) #Konturfarbe
+    fill(131, 139, 131) #Füllfarbe Kreis
     ellipse(x2, y2, 140, 140)
         
 #Start button
@@ -122,7 +126,7 @@ def draw(): #immer
             x1 = x1 + v_kb
             y1 = y1 + 60.0 / 150.0 * v_kb #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
             #y1 = y1 + 2 #Berechnung delta y : delta x = 60 : 150 = ? : 5 -> ? = 2 
-        if length_podest + 150 <= x1 <= width - 100: #Bewegung auf dem Rest der Laufbahn
+        if length_podest + 150 <= x1 <= width - 90: #Bewegung auf dem Rest der Laufbahn
             x1 = x1 + v_kb
             
         #Bewegung grosser Ball
@@ -134,7 +138,7 @@ def draw(): #immer
             #y2 = y2 + dy #Berechnung delta y : delta y = 60 : 150 = ? : 2 -> ? = 0.8
             y2 = y2 + 60.0 / 150.0 * v_gb
             #y2 = y2 + 1.2 #Berechnung delta y : delta y = 60 : 150 = ? : 2 -> ? = 0.8
-        if length_podest + 150 <= x2 <= width - 100: #Bewegung auf dem Rest der Laufbahn
+        if length_podest + 150 <= x2 <= width - 120: #Bewegung auf dem Rest der Laufbahn
             x2 = x2 + v_gb
         
         konturfarbe_start = 255 #Start button leuchtet (gelb)
@@ -152,4 +156,3 @@ def draw(): #immer
         
         konturfarbe_start = 0 
         konturfarbe_reset = 255 #Reset button leuchtet (gelb)
-        
