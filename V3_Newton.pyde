@@ -17,7 +17,7 @@ y3 = 30
 x4 = 1100
 y4 = 30
 
-#Kontrollvariable, ob Programm läuft / Input von Herrn Hefti
+#Kontrollvariable, ob Programm läuft / Input Hefti
 running = 0  #0 = Anfang, 1 = Programm läuft/Start, 2 = Programm reset
 
 #Konturfarbe der Buttons "Start" und "Reset" / Quelle: Gruppe Eugster, Racipi / die Farben switchen zwischen gelb (255, 255, 0) und schwarz (0, 0, 0)
@@ -124,13 +124,14 @@ def draw(): #immer
     noStroke()
     rect(width - 50, 350, 2, 160)
 
-#Schieberegler
+#Schieberegler 
     draw_ruler(x3, y3 + 70, 130)
     
+    #Quelle: F. Racipi
     v_kb = 4.0 + 4.0 * pointerVal * 0.01 #Min. Geschwindigkeit v_kb = 4, max. = + 100% von 4
     v_gb = 3.0 + 3.0 * pointerVal * 0.01 #Min. Geschwindigkeit v_kb = 4, max. = + 100% von 4
     
-    #pro dirttel langsam, mittel, schwer
+    #pro dirttel langsam, mittel, schnell
     if pointerVal <= 100 / 3:
         aktuell_v = "langsam"
     elif 100 / 3 <= pointerVal <= 100 * 2 / 3:
